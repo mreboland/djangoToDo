@@ -42,6 +42,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     
+    # 3rd party
+    "rest_framework",
+    
     # Local
     "todos",
 ]
@@ -125,3 +128,13 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
+
+# https://www.django-rest-framework.org/api-guide/permissions/#allowany
+# https://www.django-rest-framework.org/api-guide/settings/
+#  Django REST Framework has a lengthy list of implicitly set default settings. AllowAny is a default setting of the django rest framework. Because we set it explicitly here, the effect is exactly the same as if we had no DEFAULT_PERMISSION_CLASSES config set.
+# The default settings allow devs to jump in and start working quickly in a local dev env. However, the default settings are not appropriate for production. So we'll make changes over time as necessary.
+REST_FRAMEWORK = {
+    "DEFAULT_PERMISSION_CLASSES": [
+        "rest_framework.permissions.AllowAny"
+    ]
+}
