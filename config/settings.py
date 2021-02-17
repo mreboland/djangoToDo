@@ -141,7 +141,10 @@ REST_FRAMEWORK = {
     ]
 }
 
+# We added CORS headers and explicitly set only the domains localhost: 3000 and localhost: 8000 to have access to our API. Correctly setting CORS headers is an easy thing to be confused about when you first start building APIs.
 CORS_ORIGIN_WHITELIST = (
+    # localhost 3000 is the default port for React
     'http://localhost:3000',
+    # Default port for Django
     'http://localhost:8000',
 )
